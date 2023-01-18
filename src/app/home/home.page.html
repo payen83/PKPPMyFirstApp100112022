@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      PKPP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="ion-padding">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <h1 class="mainText">Welcome to PKPP App</h1>
+  <p>{{ myText }}</p>
+  <ion-button (click)="btnClick()">Click Here</ion-button>
+
+
+  <ion-item>
+    <ion-label>Enter your price</ion-label>
+    <ion-input [(ngModel)]="price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Enter your SST rate (%)</ion-label>
+    <ion-input [(ngModel)]="sst"></ion-input>
+  </ion-item>
+
+  <div class="ion-padding">
+    <p>Your SST value is: {{ sst_amount }}</p>
+    <p>Your final price is: {{ sst_price }}</p>
+    <ion-button (click)="calculateSST()" expand="block">Submit</ion-button>
   </div>
+
+
+  <ion-button routerLink="/user" shape="round" color="success" expand="block">
+    <ion-icon name="person" slot="start"></ion-icon>
+    View User
+  </ion-button>
+
 </ion-content>

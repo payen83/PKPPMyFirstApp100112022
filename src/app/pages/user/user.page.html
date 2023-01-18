@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>User</ion-title>
+    <ion-button fill="clear" slot="end"><ion-icon name="power"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+
+    <ion-list-header>
+      <ion-label>Gender</ion-label>
+    </ion-list-header>
+
+    <ion-radio-group [(ngModel)]="user.gender">
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio slot="start" value="m"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio slot="start" value="f"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <div class="ion-padding">
+    <ion-button expand="block" (click)="save()">Save</ion-button>
+    <ion-button fill="clear" expand="block" (click)="reset()">Reset</ion-button>
+  </div>
+
+  <ion-card *ngIf="showCard">
+    <ion-card-header class="card-view">
+      <div>
+        <ion-thumbnail slot="start">
+          <ion-icon [name]="user.gender == 'm' ? 'man':'woman' "></ion-icon>
+        </ion-thumbnail>
+      </div>
+      <div>
+        <ion-card-title>{{ user.name }}</ion-card-title>
+      </div>
+    </ion-card-header>
+  </ion-card>
+
+</ion-content>
